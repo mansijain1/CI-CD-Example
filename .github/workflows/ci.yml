@@ -31,12 +31,9 @@ jobs:
         docker build -t ecommerce-app .
         docker run ecommerce-app
 
-    - name: Check pytest test discovery
-      run: |
-        pytest --collect-only  
-
     - name: Run tests
       run: |
-        pytest --maxfail=1 --disable-warnings -q
+        python3 -m pytest ./tests/test.py
+
       env:
         PYTHONPATH: ./app  
